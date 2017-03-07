@@ -1,6 +1,7 @@
 class Team < ApplicationRecord
 
-  has_many :players, through: :players_teams
-  has_many :coaches, through: :teams_coaches
+
+  has_many :team_players
+  has_many :players, through: :team_players
 
 end
