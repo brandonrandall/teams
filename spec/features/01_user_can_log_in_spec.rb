@@ -20,30 +20,18 @@ RSpec.feature "log in" do
       # end
     end
   end
-end
 
+  describe "when a user visits '/players'" do
+    scenario 'they see a list of all player first name and last name' do
+      user = User.create(username: "BB King", password: "b")
+      michael_jordan = Player.create(name: "Michael Jordan")
+      tim_duncan = Player.create(name: "Tim Duncan")
 
+      visit players_path
 
+      expect(page).to have_content("Michael Jordan")
+      expect(page).to have_content("Tim Duncan")
 
-
-
-
-
-
-
-
-
-
-xdescribe "when a user visits '/players'" do
-  scenario 'they see a list of all player first name and last name' do
-    user = User.create(username: "BB King", password: "b")
-    michael_jordan = Player.create(name: "Michael Jordan")
-    tim_duncan = Player.create(name: "Tim Duncan")
-
-    visit players_path
-
-    expect(page).to have_content("Michael Jordan")
-    expect(page).to have_content("Tim Duncan")
-
+    end
   end
 end
