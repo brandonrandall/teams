@@ -1,0 +1,18 @@
+<h1>All Teams in the playoff race</h1>
+<h1>* only includes the teams currently in the playoffs*</h1>
+
+
+<%# if current_user %>
+  <%#= link_to "Log Out", logout_path %>
+<%# else %>
+  <h1>Create New Account</h1>
+  <%= link_to "Sign Up", new_user_path %>
+  <%= link_to "Log In", login_path %>
+<%# end %>
+
+
+
+  <h3>Teams</h3>
+  <% @teams.each do |team| %>
+  <%= team.name %><br/>
+  <% end %>
