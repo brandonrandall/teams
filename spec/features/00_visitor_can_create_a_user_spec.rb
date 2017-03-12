@@ -4,12 +4,12 @@ RSpec.feature 'home page visitation'
   describe 'when a visitor visits the home page' do
     #want to change to they can only see the first place team in the league
     scenario 'they can see all the teams' do
-      spurs = Team.create(city: "San Antonio", name: "Spurs")
-      celtics = Team.create(city: "Boston", name: "Celtics")
+      spurs = Team.create(state_or_province: "Texas", city: "San Antonio", name: "San Antonio Spurs")
+      celtics = Team.create(state_or_province: "Massachusetts", city: "Boston", name: "Boston Celtics")
 
       visit root_path
-      expect(page).to have_content("Spurs")
-      expect(page).to have_content("Celtics")
+      expect(page).to have_content("Texas")
+      expect(page).to have_content("Massachusetts")
     end
 
     describe 'when a visitor visits the home page' do

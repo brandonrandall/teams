@@ -1,6 +1,5 @@
 <h1>All Teams in the playoff race</h1>
-<h1>* only includes the teams currently in the playoffs*</h1>
-
+<h1>*log in to see full team info*</h1>
 
 <%# if current_user %>
   <%#= link_to "Log Out", logout_path %>
@@ -10,9 +9,7 @@
   <%= link_to "Log In", login_path %>
 <%# end %>
 
-
-
-  <h3>Teams</h3>
+  <h3>Team States</h3>
   <% @teams.each do |team| %>
-  <%= team.name %><br/>
+  <%= team.state_or_province %><br/>
   <% end %>
