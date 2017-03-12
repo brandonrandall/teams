@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    #weakness
     if @current_user
       @current_user
     elsif session[:user_id]
@@ -22,5 +21,4 @@ class ApplicationController < ActionController::Base
       nil
     end
   end
-
 end

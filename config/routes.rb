@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  resources :players
+  resources :teams, only: [:index, :show]
+
+  resources :coaches, only: [:index]
+
+  resources :players, only: [:index]
 
 end
