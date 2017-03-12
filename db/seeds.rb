@@ -27,17 +27,17 @@ thunder = Team.create(state_or_province: "Oklahoma", city: "Oklahoma City", name
 nuggets = Team.create(state_or_province: "Colorado", city: "Denver", name: "Denver Nuggets")
 
 
-michael_jordan = Player.create(name: "Michael Jordan")
-kobe_bryant = Player.create(name: "Kobe Bryant")
-tim_duncan = Player.create(name: "Tim Duncan")
-ron_artest = Player.create(name: "Ron Artest")
-nick_van_exel = Player.create(name: "Nick Van Exel")
+michael_jordan = Player.create(name: "Michael Jordan", status: "retired")
+kobe_bryant = Player.create(name: "Kobe Bryant", status: "retired")
+tim_duncan = Player.create(name: "Tim Duncan", status: "retired")
+ron_artest = Player.create(name: "Ron Artest", status: "retired")
+nick_van_exel = Player.create(name: "Nick Van Exel", status: "retired")
 
-chris_paul = Player.create(name: "Chris Paul")
-kahwi_leonard = Player.create(name: "Kahwi Leonard")
-isaiah_thomas = Player.create(name: "Isaiah Thomas")
-mason_plumlee = Player.create(name: "Mason Plumlee")
-matt_barnes = Player.create(name: "Matt Barnes")
+chris_paul = Player.create(name: "Chris Paul", status: "active")
+kahwi_leonard = Player.create(name: "Kahwi Leonard", status: "active")
+isaiah_thomas = Player.create(name: "Isaiah Thomas", status: "active")
+mason_plumlee = Player.create(name: "Mason Plumlee", status: "active")
+matt_barnes = Player.create(name: "Matt Barnes", status: "active")
 
 doc_rivers = Coach.create(name: "Doc Rivers", current_team:"Los Angeles Clippers")
 grep_popovich = Coach.create(name: "Greg Popovich", current_team:"San Antonio Spurs")

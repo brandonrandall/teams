@@ -9,7 +9,6 @@ RSpec.feature 'logged in user' do
       load "#{Rails.root}/db/seeds.rb"
       visit "/coaches"
 
-      save_and_open_page
       expect(current_path).to eq(coaches_path)
       expect(page).to have_content("Brad")
       expect(page).to have_content("Boston Celtics")
