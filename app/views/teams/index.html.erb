@@ -1,0 +1,8 @@
+<h1>All Teams in the Race</h1><br/>
+  <div>
+    <% @teams.each do |team| %>
+    <h4><%= team.name %><br/></h4>
+      City: <%= team.city %><br/>
+      State: <%= team.state_or_province %><br/>
+    <% end %>
+  </div>
