@@ -10,16 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312195654) do
+ActiveRecord::Schema.define(version: 20170314173444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "coaches", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "current_team"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
@@ -32,8 +31,9 @@ ActiveRecord::Schema.define(version: 20170312195654) do
   create_table "team_coaches", force: :cascade do |t|
     t.integer  "coach_id"
     t.integer  "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "current",    default: true
     t.index ["coach_id"], name: "index_team_coaches_on_coach_id", using: :btree
     t.index ["team_id"], name: "index_team_coaches_on_team_id", using: :btree
   end
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170312195654) do
   create_table "team_players", force: :cascade do |t|
     t.integer "team_id"
     t.integer "player_id"
+    t.boolean "current",   default: true
     t.index ["player_id"], name: "index_team_players_on_player_id", using: :btree
     t.index ["team_id"], name: "index_team_players_on_team_id", using: :btree
   end
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170312195654) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "state_or_province"
+    t.string   "conference"
   end
 
   create_table "users", force: :cascade do |t|
