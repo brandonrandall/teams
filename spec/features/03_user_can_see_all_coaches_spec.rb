@@ -9,7 +9,6 @@ RSpec.feature 'logged in user' do
       load "#{Rails.root}/db/seeds.rb"
       visit "/coaches"
 
-      save_and_open_page
       expect(current_path).to eq(coaches_path)
       expect(page).to have_content("Brad")
       expect(page).to have_content("Boston Celtics")
@@ -18,8 +17,8 @@ RSpec.feature 'logged in user' do
 
   describe 'teams have specified columns' do
     scenario 'current team' do
-      brad_stephens = Coach.create(name: "Brad Stephens", current_team:"Boston Celtics")
-      expect(brad_stephens).to have_attributes(name: "Brad Stephens", current_team:"Boston Celtics")
+      brad_stephens = Coach.create(name: "Brad Stephens")
+      expect(brad_stephens).to have_attributes(name: "Brad Stephens")
     end
   end
 end
