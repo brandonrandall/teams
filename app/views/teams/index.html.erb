@@ -1,8 +1,6 @@
 <h1>All Teams in the Playoff Race</h1><br/>
   <div>
     <% @teams.each do |team| %>
-    <h4><%= team.name %><br/></h4>
-      City: <%= team.city %><br/>
-      State: <%= team.state_or_province %><br/>
+      <h4><%= link_to team.name, team_path(team.id) %><br/></h4>
     <% end %>
   </div>
