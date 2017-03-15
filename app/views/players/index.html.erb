@@ -1,3 +1,4 @@
-<% @players.each do |player| %>
-  <%= player.name %>
-<% end %>
+<h1>All Players in the Playoff Race</h1>
+  <% @players.each do |player| %>
+    <%= player.name %>: <%= player.status %> with <%= player.teams.first.name %><br/>
+  <% end %>

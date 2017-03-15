@@ -1,6 +1,8 @@
 class PlayersController < ApplicationController
 
   def index
+    @teams = Team.all
+    @coaches = Coach.all
     @players = Player.all
   end
 

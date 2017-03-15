@@ -1,0 +1,8 @@
+<h1><%= @team.name %></h1><br/>
+  Team State: <%= @team.state_or_province %><br/>
+  Current_Players:  <% @team.players.each do |player| %><br/>
+                      <%= link_to player.name %><br/>
+                    <% end %>
+  Current_Coaches:  <% @team.coaches.each do |coach| %><br/>
+                      <%= link_to coach.name %>
+                    <% end %>
