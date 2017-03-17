@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'visitor#index'
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
+  # get ':slug' => "teams#show", :as => "team"
 
 
   resources :users, only: [:new, :create, :show]

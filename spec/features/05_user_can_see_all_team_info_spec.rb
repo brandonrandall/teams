@@ -11,7 +11,6 @@ RSpec.feature 'logged in user team info' do
       expect(current_path).to eq(teams_path)
       click_on "Denver Nuggets"
 
-      save_and_open_page
       # expect(current_path).to eq(team_path(Team.last.id))
       expect(page).to have_content("Denver Nuggets")
       expect(page).to have_content("Colorado")
@@ -21,5 +20,28 @@ RSpec.feature 'logged in user team info' do
 
     end
   end
-  # expect(current_path).to eq(team_path(Team.last.id))
+
+  xdescribe 'when a logged in user visits a specific team page' do
+    scenario 'they are prompted to a route with that specific team name' do
+      user = User.create(username: "BB King", password: "b")
+      load "#{Rails.root}/db/seeds.rb"
+
+      visit '/teams'
+      expect(page).to have_link("Denver Nuggets")
+      expect(current_path).to eq(teams_path)
+      click_on "Denver Nuggets"
+
+      nuggets.teams.create(team: nuggets)
+
+      visit team_path(nuggets)
+      expect(current_path).to eq("/nuggets")
+
+      expect(page).to have_content("Denver Nuggets")
+      expect(page).to have_content("Colorado")
+      expect(page).to have_content("Jamal Murray")
+      expect(page).to have_content("Nikola Jokic")
+      expect(page).to have_content("Mike Malone")
+
+    end
+  end
 end
