@@ -1,10 +1,12 @@
 RSpec.feature 'player info' do
-  xdescribe 'when a logged in user visits the players show page' do
+  describe 'when a logged in user visits the players show page' do
     scenario 'they should see the players current coach' do
 
       user = User.create(username: "BB King", password: "b")
       load "#{Rails.root}/db/seeds.rb"
-      visit '/lebron_james'
+
+      lebron = Player.where(name: "Lebron James")
+      visit player_path(lebron.first)
 
       expect(page).to have_content("Lebron James")
       expect(page).to have_content("active")

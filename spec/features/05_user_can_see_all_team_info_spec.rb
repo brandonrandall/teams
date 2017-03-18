@@ -5,13 +5,13 @@ RSpec.feature 'logged in user team info' do
     scenario 'they see city, state, coach and players on the team' do
       user = User.create(username: "BB King", password: "b")
       load "#{Rails.root}/db/seeds.rb"
+      nuggets = Team.where(name: "Denver Nuggets")
 
       visit '/teams'
       expect(page).to have_link("Denver Nuggets")
       expect(current_path).to eq(teams_path)
       click_on "Denver Nuggets"
 
-      # expect(current_path).to eq(team_path(Team.last.id))
       expect(page).to have_content("Denver Nuggets")
       expect(page).to have_content("Colorado")
       expect(page).to have_content("Jamal Murray")
@@ -31,10 +31,10 @@ RSpec.feature 'logged in user team info' do
       expect(current_path).to eq(teams_path)
       click_on "Denver Nuggets"
 
-      nuggets.teams.create(team: nuggets)
+      nuggets = Team.where(name: "Denver Nuggets")
 
       visit team_path(nuggets)
-      expect(current_path).to eq("/nuggets")
+      expect(current_path).to eq("/teams/nuggets")
 
       expect(page).to have_content("Denver Nuggets")
       expect(page).to have_content("Colorado")

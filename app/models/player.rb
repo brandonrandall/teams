@@ -5,11 +5,11 @@ class Player < ApplicationRecord
   has_many :team_players
   has_many :teams, through: :team_players
   #
-  def team
-    team_id = self.team_players.find_by(player_id: self.id, current: true).team_id
-    Team.find(team_id)
-    team.coach
-  end
+  # def team
+  #   team_id = self.team_players.find_by(player_id: self.id, current: true).team_id
+  #   Team.find(team_id)
+  #   team.coach
+  # end
 
   # def self.current_team
   #   # @teams.find_by(team_id:) if

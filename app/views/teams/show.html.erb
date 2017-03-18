@@ -1,8 +1,8 @@
-<h1><%= @team.name %></h1><br/>
-  Team State: <%= @team.state_or_province %><br/>
-  Current_Players:  <% @team.players.each do |player| %><br/>
-                      <%= link_to player.name %><br/>
+<h1><%= @team.first.name %></h1><br/>
+  Team State: <%= @team.first.state_or_province %><br/>
+  Current_Players:  <% @team.first.players.each do |player| %><br/>
+                      <%= link_to player.name, player_path(player.id) %><br/>
                     <% end %>
-  Current_Coaches:  <% @team.coaches.each do |coach| %><br/>
+  Current_Coaches:  <% @team.first.coaches.each do |coach| %><br/>
                       <%= link_to coach.name %>
                     <% end %>

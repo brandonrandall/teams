@@ -5,9 +5,10 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
-    #   @team = Team.find(slug: params[:slug])
-    #   @team_name = @team.name unless @team.nil?
+    # @team = Team.find(params[:id])
+      @team = Team.where(name: params[:slug])
+      # binding.pry
+      # @team_name = @team.name unless @team.nil?
   end
 
 end
