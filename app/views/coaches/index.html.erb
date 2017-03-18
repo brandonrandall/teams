@@ -1,5 +1,4 @@
-<h1>All Coaches</h1>
+<h1>All Coaches In the Playoffs Race</h1>
   <% @coaches.each do |coach| %>
-    <%= coach.name %><br>
-    <%= coach.current_team %><br>
+    <%= coach.name %>: <%= coach.teams.first.name %><br/>
   <% end %>

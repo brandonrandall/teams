@@ -7,10 +7,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
-  resources :teams, only: [:index, :show]
+  resources :teams, only: [:index, :show], param: :slug
 
   resources :coaches, only: [:index]
 
-  resources :players, only: [:index]
+  resources :players, only: [:index, :show]
 
+  # get ':slug' => "teams#show", :as => "team"
 end

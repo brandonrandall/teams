@@ -12,8 +12,6 @@ RSpec.feature 'logged in user' do
       visit "/teams"
 
       expect(current_path).to eq(teams_path)
-      expect(page).to have_content("Ohio")
-      expect(page).to have_content("Cleveland")
       expect(page).to have_content("Cleveland Cavaliers")
 
     end

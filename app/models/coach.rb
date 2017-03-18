@@ -1,7 +1,7 @@
 class Coach < ApplicationRecord
 
-  # has_many :player_coaches
-  # has_many :players, through: :player_coaches
+  has_many :player_coaches
+  has_many :players, through: :player_coaches
   has_many :team_coaches
   has_many :teams, through: :team_coaches
 
