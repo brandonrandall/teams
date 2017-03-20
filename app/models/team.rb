@@ -9,14 +9,14 @@ class Team < ApplicationRecord
   has_many :team_players
   has_many :players, through: :team_players
 
-  def to_param(team_name)
-    team_name.parameterize
-  end
-
-  def self.find_by_param(input)
-    find_by_name(input)
-  end
+  # def to_param(team_name)
+  #   params[:slug].parameterize
+  # end
   #
+  # def self.find_by_param(input)
+  #   find_by_name(input)
+  # end
+  # #
   # private
   #
   # def create_slug
