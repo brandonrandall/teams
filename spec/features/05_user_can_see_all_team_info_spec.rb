@@ -25,14 +25,12 @@ RSpec.feature 'logged in user team info' do
     scenario 'they are prompted to a route with that specific team name' do
       user = User.create(username: "BB King", password: "b")
       load "#{Rails.root}/db/seeds.rb"
-      nuggets = Team.where(name: "Denver Nuggets")
       visit '/teams'
+      nuggets = Team.where(name: "Denver Nuggets")
       expect(page).to have_link("Denver Nuggets")
       expect(current_path).to eq(teams_path)
       click_on "Denver Nuggets"
 
-
-      visit team_path(nuggets)
       expect(current_path).to eq("/teams/denver-nuggets")
 
       expect(page).to have_content("Denver Nuggets")
