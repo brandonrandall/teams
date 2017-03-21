@@ -24,13 +24,18 @@ RSpec.feature "log in" do
   describe "when a user visits '/players'" do
     scenario 'they see a list of all player first name and last name' do
       user = User.create(username: "BB King", password: "b")
-      michael_jordan = Player.create(name: "Michael Jordan")
-      tim_duncan = Player.create(name: "Tim Duncan")
+
+      cavaliers = Team.create!(state_or_province: "Ohio",
+                              city: "Cleveland", name: "Cleveland Cavaliers", slug: "cleveland-cavaliers")
+      lebron_james = cavaliers.players.create(name: "Lebron James", status: "active")
+      kyrie_irving = cavaliers.players.create(name: "Kyrie Irving", status: "active")
 
       visit players_path
 
-      expect(page).to have_content("Michael Jordan")
-      expect(page).to have_content("Tim Duncan")
+      expect(page).to have_content("Lebron James")
+      expect(page).to have_content("active")
+      expect(page).to_not have_content("Kyrie Erving")
+      expect(page).to_not have_content("retired")
 
     end
   end

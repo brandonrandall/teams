@@ -1,0 +1,6 @@
+<h1><%= @player.name %></h1>
+    <%= @player.status %> with <%= @player.teams.first.name %><br/>
+    Current Coaching Staff: <%= @player.teams.first.coaches.first.name %><br>
+    Previous Head Coaches: <% @player.coaches.each do |coach| %>
+                            <%= coach.name %>
+                            <% end %>
