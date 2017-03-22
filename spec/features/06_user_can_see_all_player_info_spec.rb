@@ -17,7 +17,7 @@ RSpec.feature 'player info' do
     end
   end
 
-  xdescribe 'when a logged in user visits the players show page' do
+  describe 'when a logged in user visits the players show page' do
     scenario 'they should see the players previous coaches' do
 
       user = User.create(username: "BB King", password: "b")
@@ -25,6 +25,7 @@ RSpec.feature 'player info' do
       visit '/players'
 
       expect(page).to have_content("Lebron James")
+      expect(page).to have_content("Tyron Lue")
       expect(page).to have_content("active")
       expect(page).to have_content("Cleveland Cavaliers")
 

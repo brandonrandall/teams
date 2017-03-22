@@ -100,12 +100,12 @@
       # giannis
       matthew_dellividova = bucks.players.create!(name: "Matthew Dellividova", status: "active")
       # malcolm_brogdon
-      # greg_monroe
+      greg_monroe = bucks.players.create!(name: "Greg Monroe", status: "active")
       # john_henson
 ############################bulls
     fred_hoiberg = bulls.coaches.create!(name: "Chicago Bulls")
       # jimmy_butler
-      # michael_carter_williams
+      michael_carter_williams = bulls.players.create!(name: "Michael Carter Williams", status: "active")
       rajon_rondo = bulls.players.create!(name: "Rajon Rondo", status: "active")
       dwayne_wade = bulls.players.create!(name: "Dwayne Wade", status: "active")
       # nikola_mirotic
@@ -119,7 +119,7 @@
 
 ###########################western_conference###########################
 ###########################spurs
-    grep_popovich = spurs.coaches.create!(name: "Greg Popovich")
+    greg_popovich = spurs.coaches.create!(name: "Greg Popovich")
       kahwi_leonard = spurs.players.create!(name: "Kahwi Leonard", status: "active")
       lemarcus_aldridge = spurs.players.create!(name: "Lemarcus Aldridge", status: "active")
       tony_parker = spurs.players.create!(name: "Tony Parker", status: "active")
@@ -186,8 +186,8 @@
 
 ############################blazers
     terry_stotts = blazers.coaches.create!(name: "Terry Stotts")
-      # damian_lillard
-      # cj_mccullum
+      damian_lillard = blazers.players.create!(name: "Damian Lillard", status: "active")
+      cj_mccullum = blazers.players.create!(name: "CJ McCollum", status: "active")
       al_forouq_aminu = blazers.players.create!(name: "Al Forouq Aminu", status: "active")
       jusuf_nurkic = blazers.players.create!(name: "Jusuf Nurkic", status: "active")
       evan_turner = blazers.players.create!(name: "Evan Turner", status: "active")
@@ -195,14 +195,17 @@
 
 ############################mavericks
     rick_carlisle = mavericks.coaches.create!(name: "Rick Carlisle")
-      # jose_juan_barea
-      # dirk_nowitzki
+    #how do i implement a nickname on a general page and real name on direct page
+      jose_juan_barea = mavericks.players.create!(name: "JJ Barea", status: "active")
+      dirk_nowitzki = mavericks.players.create!(name: "Dirk Novitzki", status: "active")
       wesley_mathews = mavericks.players.create!(name: "Devin Harris", status: "active")
       harrison_barnes = mavericks.players.create!(name: "Harrison Barnes", status: "active")
       # devin_harris
 
 
 ############################prev_players############################
+
+cavaliers.team_players.create!(player: matthew_dellividova, current: false)
 
 heat.team_players.create!(player: lebron_james, current: false)
 heat.team_players.create!(player: dwayne_wade, current: false)
@@ -221,7 +224,7 @@ spurs.team_players.create!(player: george_hill, current: false)
 clippers.team_players.create!(player: al_forouq_aminu, current: false)
 clippers.team_players.create!(player: matt_barnes, current: false)
 
-thunder.team_coaches.create!(coach: sean_brooks, current: false)
+
 thunder.team_players.create!(player: james_harden, current: false)
 thunder.team_players.create!(player: kevin_durant, current: false)
 thunder.team_players.create!(player: dion_waiters, current: false)
@@ -231,14 +234,37 @@ blazers.team_players.create!(player: lemarcus_aldridge, current: false)
 blazers.team_players.create!(player: wesley_mathews, current: false)
 
 bucks.team_players.create!(player: brandon_jennings, current: false)
+bucks.team_players.create!(player: michael_carter_williams, current: false)
 
 jazz.team_players.create!(player: enes_kanter, current: false)
 
-nuggets.team_players.create!(player: reggie_jackson, current: false)
+thunder.team_players.create!(player: reggie_jackson, current: false)
 
 warriors.team_players.create!(player: harrison_barnes, current: false)
 
-#
+pistons.team_players.create!(player: greg_monroe, current: false)
+pistons.team_players.create!(player: brandon_jennings, current: false)
 
-#       michael_jordan = bulls.players.create!(name: "Michael Jordan", status: "retired")
-#       tim_duncan = spurs.players.create(name: "Tim Duncan", status: "retired")
+############################prev_player_coaches############################
+lebron_james.player_coaches.create!(coach: erik_spoelstra, current: false)
+george_hill.player_coaches.create!(coach: greg_popovich, current: false)
+kevin_durant.player_coaches.create!(coach: sean_brooks, current: false)
+harrison_barnes.player_coaches.create!(coach: steve_kerr, current: false)
+serge_ibaka.player_coaches.create!(coach: sean_brooks, current: false)
+############################prev_team_coaches############################
+thunder.team_coaches.create!(coach: sean_brooks, current: false)
+celtics.team_coaches.create!(coach: doc_rivers, current: false)
+pacers.team_coaches.create!(coach: rick_carlisle, current: false)
+#hakeem
+#tim_duncan
+#lebron
+#michael_jordan
+#magic
+#kyrie
+
+#admiral
+#kg
+#chuck
+#kobe
+#j Kidd
+#j will
