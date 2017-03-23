@@ -6,12 +6,13 @@ class PlayersController < ApplicationController
     @players = Player.all
   end
 
-  def new
-    @player = Player.new
-  end
+  # def new
+  #   @player = Player.new
+  # end
 
   def show
-    @player = Player.find(params[:id])
+    # @player = Player.find(params[:id])
+    @player = Player.find_by(slug: params[:slug])
   end
 
 end

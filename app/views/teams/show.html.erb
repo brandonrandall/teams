@@ -1,12 +1,16 @@
 <h1><%= @team.name %></h1><br/>
   City and State: <%= @team.city %>, <%= @team.state_or_province %><br/>
   Current Players:  <% @team.current_players.each do |current_player| %><br/>
-                      <%= link_to current_player.name, player_path(current_player.id) %><br/>
+                      <%= link_to current_player.name, player_path(current_player.slug) %><br/>
                     <% end %>
-  Current Head Coach:  <%= link_to @team.current_coach.name %><br/>
+  Current Head Coach:  <%= link_to @team.current_coach.name, coach_path(@team.current_coach.slug) %><br/>
 
                       <%#= add asst coaches: link_to current_coach.name %>
                     <%# end %>
   Previous Players: <% @team.previous_players.each do |previous_player| %>
-                      <%= link_to previous_player.name %>
+                      <%= link_to previous_player.name, player_path(previous_player.slug) %>
+                    <% end %><br/>
+
+  Previous Coaches: <% @team.previous_coaches.each do |previous_coach| %>
+                      <%= link_to previous_coach.name, coach_path(previous_coach.slug) %>
                     <% end %>

@@ -1,4 +1,6 @@
 <h1><%= @player.name %></h1>
     <%= @player.status %> with <%= @player.teams.first.name %><br/>
-    Current Coaching Staff: <%= @player.current_coach.name %><br>
-    Previous Head Coaches: <%= @player.previous_coach.name %>
+    Current Coaching Staff: <%= link_to @player.current_coach.name, coach_path(@player.current_coach.slug) %><br>
+    Previous Head Coaches: <%  @player.previous_coaches.each do |coach| %>
+                              <%= link_to coach.name, coach_path(coach.slug) %>
+                              <% end %>

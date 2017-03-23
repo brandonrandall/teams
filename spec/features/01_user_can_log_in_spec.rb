@@ -27,8 +27,8 @@ RSpec.feature "log in" do
 
       cavaliers = Team.create!(state_or_province: "Ohio",
                               city: "Cleveland", name: "Cleveland Cavaliers", slug: "cleveland-cavaliers")
-      lebron_james = cavaliers.players.create(name: "Lebron James", status: "active")
-      kyrie_irving = cavaliers.players.create(name: "Kyrie Irving", status: "active")
+      lebron_james = cavaliers.players.create(name: "Lebron James", status: "active", slug: "lebron-james")
+      kyrie_irving = cavaliers.players.create(name: "Kyrie Irving", status: "active", slug: "kyrie-irving")
 
       visit players_path
 

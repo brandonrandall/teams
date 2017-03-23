@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/teams/:slug', to: "teams#show", as: :team
+  get '/coaches/:slug', to: "coaches#show", as: :coach
+  get '/players/:slug', to: "players#show", as: :player
 
   resources :users, only: [:new, :create, :show]
 
-  # resources :teams, only: [:index, :show]
   resources :teams, only: [:index], param: :slug
 
-  resources :coaches, only: [:index]
+  resources :coaches, only: [:index], param: :slug
 
-  resources :players, only: [:index, :show]
+  resources :players, only: [:index], param: :slug
 
-  # get ':slug' => "teams#show", :as => "team"
 end
