@@ -1,2 +1,10 @@
 <h1 class="greeting">Welcome <%= current_user.username %></h1>
-<%= link_to "Teams", teams_path  %>
+  <% if current_user.role == 0 %>
+    <%= link_to "Teams", teams_path  %><br/>
+    <%= link_to "Create User", new_user_path(current_user) %><br/>
+    <%= link_to "Edit Coaches", coaches_path %><br/>
+    <%= link_to "Edit Players", players_path %><br/>
+    <%= link_to "Edit Teams", teams_path %><br/>
+  <% else %>
+    <%= link_to "Teams", teams_path  %>
+  <% end %>

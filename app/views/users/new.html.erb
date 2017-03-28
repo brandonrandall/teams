@@ -1,6 +1,9 @@
-<h1>Create New Account</h1>
+<h1>Create New User</h1>
 
 <%= form_for @user do |f| %>
+  <%= f.hidden_field :role, value: 1 %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
   <%= f.label :username %>
   <%= f.text_field :username %>
@@ -11,6 +14,11 @@
   <%= f.label :confirmation_password %>
   <%= f.password_field :confirmation_password %>
 
-  <%= f.submit "Sign Up"%>
+  <%= f.label :email %>
+  <%= f.password_field :email %>
+
+  <%= f.submit "Create User"%>
 
 <% end %>
+
+<%= link_to "Return to Previous Page", user_path(current_user) %>

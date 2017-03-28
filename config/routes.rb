@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   get '/teams/:slug', to: "teams#show", as: :team
   get '/coaches/:slug', to: "coaches#show", as: :coach
   get '/players/:slug', to: "players#show", as: :player
+  get '/dashboard', to: "users#show"
+  post '/dashboard', to: "users#show"
+
+  namespace :admin do
+    get '/dashboard', to: "users#show"
+end
 
   resources :users, only: [:new, :create, :show]
 

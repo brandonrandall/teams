@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-
+load_up = load "#{Rails.root}/db/seeds.rb"
 
 RSpec.feature 'logged in user' do
 
@@ -8,7 +8,7 @@ RSpec.feature 'logged in user' do
   describe "when a user visits '/teams' path" do
     scenario 'they see a list of all teams: state, city and team name' do
       user = User.create(username: "BB King", password: "b")
-      load "#{Rails.root}/db/seeds.rb"
+      load_up
       visit "/teams"
 
       expect(current_path).to eq(teams_path)

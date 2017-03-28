@@ -1,5 +1,7 @@
 <h1><%= @coach.name %></h1>
-Current Players:  <%= @coach.  %><br/>
+Current Players:  <% @coach.current_players.each do |player|  %>
+                    <%= link_to player.name, player_path(player.slug) %>
+                  <% end %><br/>
 Previous Players: <% @coach.previous_players.each do |player| %>
-                  <%= link_to player.name, player_path(player.slug) %>
+                    <%= link_to player.name, player_path(player.slug) %>
                   <% end %>

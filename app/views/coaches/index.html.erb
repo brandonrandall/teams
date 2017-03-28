@@ -1,4 +1,5 @@
 <h1>All Coaches In the Playoffs Race</h1>
   <% @coaches.each do |coach| %>
-    <%= coach.name %>: <%= coach.teams.first.name %><br/>
+  <%# binding.pry %>
+    <%= link_to coach.name, coach_path(coach.slug) %>: <%= link_to coach.teams.first.name, team_path(coach.teams.first.slug) %><br/>
   <% end %>
