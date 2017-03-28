@@ -1,8 +1,5 @@
 class Team < ApplicationRecord
 
-  # before_validation :create_slug
-  # validates :slug, presence: true, uniqueness: { case_sensitive: false }
-  # validates_uniqueness_of :name
   validates :name,
             :slug, presence: true
 
@@ -17,6 +14,10 @@ class Team < ApplicationRecord
   def current_coach
     coaches.where("team_coaches.current = ?", true).first
     # team_coaches.where(current: true).first.coach
+  end
+
+  def previous_coaches
+    coaches.where("team_coaches.current =?", false)
   end
 
   def previous_players

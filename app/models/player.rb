@@ -1,5 +1,11 @@
 class Player < ApplicationRecord
 
+  validates :name,
+            :slug, presence: true
+
+  validates :name,
+            :slug, uniqueness: true
+
   has_many :player_coaches
   has_many :coaches, through: :player_coaches
   has_many :team_players
@@ -12,9 +18,12 @@ class Player < ApplicationRecord
     # team_coaches.where(current: true).first.coach
   end
 
-  def previous_coach
+  def previous_coaches
     # Coach.joins(:player_coaches).where(current: false).where(player_id: self.id)
-    player_coaches.where(current: false).joins(:coach).select('coaches.*').first
+    # for slug
+    player_coaches.where(current: false).map { |pc| pc.coach }
+    # for finding coach.id
+    # player_coaches.where(current: false).joins(:coach).select('coaches.*').coaches
     # player_coaches.where(current: false).joins('join coaches on player_coaches.coach_id = coaches.id').select('coaches.*')
   end
 

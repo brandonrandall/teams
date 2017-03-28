@@ -4,4 +4,8 @@ class CoachesController < ApplicationController
     @coaches  = Coach.all
   end
 
+  def show
+    @coach = Coach.find_by(slug: params[:slug])
+  end
+
 end

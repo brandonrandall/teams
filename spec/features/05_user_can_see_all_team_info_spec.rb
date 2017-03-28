@@ -1,10 +1,13 @@
 require 'rails_helper'
 
+
+load_up = load "#{Rails.root}/db/seeds.rb"
+
 RSpec.feature 'logged in user team info' do
   describe 'when a logged in user visits a specific team page' do
     scenario 'they see city, state, coach and players on the team' do
       user = User.create(username: "BB King", password: "b")
-      load "#{Rails.root}/db/seeds.rb"
+      load_up
       nuggets = Team.where(name: "Denver Nuggets")
 
       visit '/teams'

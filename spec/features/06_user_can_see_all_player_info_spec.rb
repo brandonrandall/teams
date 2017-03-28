@@ -1,12 +1,16 @@
+require 'rails_helper'
+
+load_up = load "#{Rails.root}/db/seeds.rb"
+
 RSpec.feature 'player info' do
   describe 'when a logged in user visits the players show page' do
     scenario 'they should see the players current coach' do
 
       user = User.create(username: "BB King", password: "b")
-      load "#{Rails.root}/db/seeds.rb"
+      load_up
 
-      lebron = Player.where(name: "Lebron James")
-      visit player_path(lebron.first)
+      lebron = Player.where(name: "Lebron James").first
+      visit player_path(lebron.slug)
 
       expect(page).to have_content("Lebron James")
       expect(page).to have_content("active")
@@ -21,23 +25,23 @@ RSpec.feature 'player info' do
     scenario 'they should see the players previous coaches' do
 
       user = User.create(username: "BB King", password: "b")
-      load "#{Rails.root}/db/seeds.rb"
-      visit '/players'
+      load_up
+      visit '/players/lebron-james'
 
       expect(page).to have_content("Lebron James")
-      expect(page).to have_content("Tyron Lue")
       expect(page).to have_content("active")
+      expect(page).to have_content("Tyron Lue")
       expect(page).to have_content("Cleveland Cavaliers")
 
 
     end
   end
 
-  xdescribe 'when a logged in user visits the players show page' do
+  describe 'when a logged in user visits the players show page' do
       scenario 'they should see the players previous teams' do
 
         user = User.create(username: "BB King", password: "b")
-        load "#{Rails.root}/db/seeds.rb"
+        load_up
         visit '/players'
 
         expect(page).to have_content("Lebron James")

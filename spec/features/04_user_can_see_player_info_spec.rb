@@ -5,12 +5,14 @@ require 'rails_helper'
 # And I should see the players current status 'retired' or 'active'
 # And I should see the players current team
 
+load_up = load "#{Rails.root}/db/seeds.rb"
+
 RSpec.feature 'player stats' do
   describe 'when a logged in user visits the players show page' do
     scenario 'they should see first and last name, status and current team' do
 
       user = User.create(username: "BB King", password: "b")
-      load "#{Rails.root}/db/seeds.rb"
+      load_up
       visit '/players'
 
       expect(page).to have_content("Lebron James")
