@@ -1,0 +1,12 @@
+<h1>Create New Coach</h1>
+
+<%= form_for @coach do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :team_coaches %>
+  <%= f.select(:team_coaches, options_for_select( @teams.map { |team| [team.name, team.id] } ))%>
+
+  <%= f.submit "Create Coach"%>
+
+<% end %>

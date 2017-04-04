@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-load_up = load "#{Rails.root}/db/seeds.rb"
 
 RSpec.feature 'logged in user' do
 
 
   describe "when a user visits '/teams' path" do
     scenario 'they see a list of all teams: state, city and team name' do
-      user = User.create(username: "BB King", password: "b")
-      load_up
+      # user = User.create(username: "BB King", password: "b")
+      load "#{Rails.root}/db/seeds.rb"
       visit "/teams"
 
       expect(current_path).to eq(teams_path)
@@ -19,7 +18,7 @@ RSpec.feature 'logged in user' do
 
   describe 'teams have specified columns' do
     scenario 'state or province' do
-      raptors = Team.create(state_or_province: "Ontario", city: "Toronto", name: "Toronto Raptors")
+      # raptors = Team.create(state_or_province: "Ontario", city: "Toronto", name: "Toronto Raptors")
       expect(raptors).to have_attributes(state_or_province: "Ontario", city: "Toronto", name: "Toronto Raptors")
     end
   end

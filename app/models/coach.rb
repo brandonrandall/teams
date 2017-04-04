@@ -29,7 +29,7 @@ class Coach < ApplicationRecord
   end
 
   def current_team
-    Team.find(team_coaches.find_by(current: true).team_id)
+    team_coaches.where(current: true).first.team.name
   end
 
 end

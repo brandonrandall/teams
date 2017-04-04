@@ -27,6 +27,14 @@ class Player < ApplicationRecord
     # player_coaches.where(current: false).joins('join coaches on player_coaches.coach_id = coaches.id').select('coaches.*')
   end
 
+  def current_team
+    team_players.find_by(current: true).team.name
+  end
+
+  def previous_teams
+    team_players.where(current: false).map { |tp| tp.team.name }.first
+  end
+
   # create method that derives all coaches
   # .distinct eliminates all duplicate objects
   # create an inquiry of most recent based on the created_at

@@ -31,7 +31,7 @@ RSpec.feature 'home page visitation' do
     end
   end
 
-    xdescribe 'when a visitor visits the home page' do
+    describe 'when a visitor visits the home page' do
       scenario 'a visitor will see login and signup' do
 
         visit root_path
