@@ -1,5 +1,21 @@
 <h1>All Coaches In the Playoffs Race</h1>
+
+<% if current_user.role == 0 %>
+  <%= link_to "Create New Coach", new_coach_path %><br/>
+  <%# binding.pry %>
+  <%#= link_to "Edit Coach", edit_coach_path %><br/>
+<br/>
+  <% @coaches.each do |coach| %>
+  <%= link_to coach.name, coach_path(coach.slug) %>:
+  <%= link_to coach.teams.first.name,
+      team_path(coach.teams.first.slug) %><br/>
+  <% end %>
+<% else %>
   <% @coaches.each do |coach| %>
   <%# binding.pry %>
-    <%= link_to coach.name, coach_path(coach.slug) %>: <%= link_to coach.teams.first.name, team_path(coach.teams.first.slug) %><br/>
+    <%= link_to coach.name, coach_path(coach.slug) %>:
+    <%= link_to coach.teams.first.name,
+        team_path(coach.teams.first.slug) %><br/>
   <% end %>
+
+<% end %>

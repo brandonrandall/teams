@@ -3,22 +3,22 @@ Rails.application.routes.draw do
   root 'visitor#index'
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
-  get '/teams/:slug', to: "teams#show", as: :team
-  get '/coaches/:slug', to: "coaches#show", as: :coach
-  get '/players/:slug', to: "players#show", as: :player
   get '/dashboard', to: "users#show"
   post '/dashboard', to: "users#show"
 
-  namespace :admin do
-    get '/dashboard', to: "users#show"
-end
+#   namespace :admin do
+#     get '/dashboard', to: "users#show"
+# end
 
   resources :users, only: [:new, :create, :show]
 
   resources :teams, only: [:index], param: :slug
 
-  resources :coaches, only: [:index], param: :slug
+  resources :coaches, only: [:new, :create, :index, :edit], param: :slug
 
-  resources :players, only: [:index], param: :slug
+  resources :players, only: [:index, :show, :edit, :update], param: :slug
 
+  get '/teams/:slug', to: "teams#show", as: :team
+  # get '/players/:slug', to: "players#show", as: :player
+  get '/coaches/:slug', to: "coaches#show", as: :coach
 end

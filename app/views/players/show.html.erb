@@ -1,7 +1,13 @@
+<% if current_user.role == 0 %>
+  <%= link_to "Edit Player", edit_player_path(@player) %>
+<% end %><br/>
 <h1><%= @player.name %></h1>
-    <%= @player.status %> with <%= link_to @player.teams.first.name, team_path(@player.teams.first.slug) %><br/>
+
+    <%= @player.status %> with <%= link_to @player.current_team, team_path(@player.teams.first.slug) %><br/>
+    <%# binding.pry %>
+    Previous Teams: <%= @player.previous_teams %><br/>
     Current Coaching Staff: <%= link_to @player.current_coach.name, coach_path(@player.current_coach.slug) %><br>
     <% #binding.pry %>
     Previous Head Coaches: <%  @player.previous_coaches.each do |coach| %>
                               <%= link_to coach.name, coach_path(coach.slug) %>
-                              <% end %>
+                              <% end %><br/>

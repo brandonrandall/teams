@@ -25,10 +25,10 @@ RSpec.feature "log in" do
     scenario 'they see a list of all player first name and last name' do
       user = User.create(username: "BB King", password: "b")
 
-      cavaliers = Team.create!(state_or_province: "Ohio",
-                              city: "Cleveland", name: "Cleveland Cavaliers", slug: "cleveland-cavaliers")
-      lebron_james = cavaliers.players.create(name: "Lebron James", status: "active", slug: "lebron-james")
-      kyrie_irving = cavaliers.players.create(name: "Kyrie Irving", status: "active", slug: "kyrie-irving")
+      # cavaliers = Team.create!(state_or_province: "Ohio",
+      #                         city: "Cleveland", name: "Cleveland Cavaliers", slug: "cleveland-cavaliers")
+      # lebron_james = cavaliers.players.create(name: "Lebron James", status: "active", slug: "lebron-james")
+      # kyrie_irving = cavaliers.players.create(name: "Kyrie Irving", status: "active", slug: "kyrie-irving")
 
       visit players_path
 

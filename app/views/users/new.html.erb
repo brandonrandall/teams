@@ -1,7 +1,9 @@
 <h1>Create New User</h1>
 
 <%= form_for @user do |f| %>
+
   <%= f.hidden_field :role, value: 1 %>
+
   <%= f.label :name %>
   <%= f.text_field :name %>
 
@@ -22,3 +24,4 @@
 <% end %>
 
 <%= link_to "Return to Previous Page", user_path(current_user) %>
+<%# binding.pry %>
